@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import java.net.URL?>
+<?import javafx.embed.swing.SwingNode?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane cache="true" stylesheets="@../styles/fxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.FXMLController">
+   <children>
+      <MenuBar prefHeight="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StackPane fx:id="applicationStackPane" layoutY="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <JFXTabPane layoutY="27.0" prefHeight="725.0" prefWidth="1017.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="100.0" tabMaxWidth="125.0" tabMinWidth="115.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+               <tabs>
+                  <Tab text="Notes">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <StackPane layoutX="-1.0" layoutY="-8.0" prefHeight="725.0" prefWidth="981.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <JFXTabPane side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                                       <tabs>
+                                          <Tab text="General">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.16772823779193205" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <JFXTreeView fx:id="generalNoteTreeList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <JFXTabPane layoutX="164.0" layoutY="189.0" prefHeight="691.0" prefWidth="781.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <tabs>
+                                                                        <Tab text="Untitled Tab">
+                                                                          <content>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <JFXTextArea fx:id="generalNoteTextArea" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                          </content>
+                                                                        </Tab>
+                                                                     </tabs>
+                                                                  </JFXTabPane>
+                                                                  <JFXButton fx:id="generalNoteSaveButton" buttonType="RAISED" layoutX="685.0" layoutY="697.0" onAction="#generalNotesSaveButtonAction" prefHeight="25.0" prefWidth="96.0" text="Save" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                                                                  <JFXTextField fx:id="generalNoteNameField" layoutX="124.0" layoutY="697.0" prefHeight="25.0" prefWidth="194.0" promptText="Name" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="125.0" />
+                                                                  <JFXTextField fx:id="generalNoteParentNameField" labelFloat="true" layoutX="351.0" layoutY="697.0" prefHeight="25.0" prefWidth="194.0" promptText="Parent" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" />
+                                                                  <Label layoutY="701.0" text="SQL ID" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" />
+                                                                  <Label fx:id="generalNoteSQLID" layoutX="47.0" layoutY="701.0" prefHeight="17.0" prefWidth="53.0" text="None" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children></AnchorPane>
+                                            </content>
+                                          </Tab>
+                                          <Tab text="Alt">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.16772823779193205" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <items>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <JFXTreeView fx:id="altNoteTreeList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <JFXTabPane layoutX="164.0" layoutY="189.0" prefHeight="691.0" prefWidth="781.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <tabs>
+                                                                        <Tab text="Untitled Tab">
+                                                                           <content>
+                                                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                 <children>
+                                                                                    <JFXTextArea fx:id="altNoteTextArea" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                           </content>
+                                                                        </Tab>
+                                                                     </tabs>
+                                                                  </JFXTabPane>
+                                                                  <JFXButton fx:id="altNoteSaveButton" buttonType="RAISED" layoutX="685.0" layoutY="697.0" onAction="#altNotesSaveButtonAction" prefHeight="25.0" prefWidth="96.0" text="Save" />
+                                                                  <JFXTextField fx:id="altNoteNameField" layoutX="124.0" layoutY="697.0" prefHeight="25.0" prefWidth="194.0" promptText="Name" />
+                                                                  <JFXTextField fx:id="altNoteParentNameField" labelFloat="true" layoutX="351.0" layoutY="697.0" prefHeight="25.0" prefWidth="194.0" promptText="Parent" />
+                                                                  <Label layoutY="701.0" text="SQL ID" />
+                                                                  <Label fx:id="altNoteSQLIDLabel" layoutX="47.0" layoutY="701.0" prefHeight="17.0" prefWidth="53.0" text="None" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="XIV">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.15" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
+                                                         <items>
+                                                            <VBox prefHeight="725.0">
+                                                               <children>
+                                                                  <JFXComboBox editable="true" labelFloat="true" maxWidth="2000.0" onKeyPressed="#xivCharComboBoxKeyPressed" onKeyReleased="#keyReleased" prefHeight="25.0" promptText="Search" fx:id="xivCharListComboBox" />
+                                                                  <JFXListView layoutX="7.0" layoutY="96.0" onMouseClicked="#xivCharListDoubleClick" prefHeight="717.0" prefWidth="161.0" VBox.vgrow="ALWAYS" fx:id="xivCharList" />
+                                                               </children>
+                                                            </VBox>
+                                                            <HBox layoutX="161.0" layoutY="-1.0" prefHeight="725.0" prefWidth="783.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.6915629322268326" orientation="VERTICAL" prefHeight="725.0" prefWidth="793.0" HBox.hgrow="ALWAYS">
+                                                                    <items>
+                                                                        <HBox>
+                                                                           <children>
+                                                                              <JFXTabPane HBox.hgrow="ALWAYS" fx:id="xivCategoryTabPane">
+                                                                                 <tabs>
+                                                                                    <Tab onSelectionChanged="#xivTabSelectionChanged" text="Character" fx:id="xivCharTab">
+                                                                                       <content>
+                                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="380.0">
+                                                                                             <children>
+                                                                                                <JFXTextField alignment="BOTTOM_LEFT" labelFloat="true" layoutY="17.0" prefHeight="25.0" promptText="Lodestone" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" fx:id="xivLodestoneField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXTextField>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="42.0" prefHeight="25.0" prefWidth="223.0" promptText="Server" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0" fx:id="xivServerField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXTextField labelFloat="true" layoutY="301.0" prefHeight="25.0" prefWidth="221.0" promptText="Name" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0" fx:id="xivNameField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXTextField>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="326.0" prefHeight="25.0" prefWidth="380.0" promptText="Race" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0" fx:id="xivRaceField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="351.0" prefHeight="25.0" prefWidth="382.0" promptText="Subrace" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="235.0" fx:id="xivSubraceField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="376.0" prefHeight="25.0" prefWidth="223.0" promptText="Sex" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="285.0" fx:id="xivSexField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="401.0" prefHeight="25.0" prefWidth="223.0" promptText="Main Job" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="335.0" fx:id="xivMainJobField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXTextField labelFloat="true" layoutY="426.0" prefHeight="25.0" prefWidth="221.0" promptText="FC" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="385.0" fx:id="xivFcField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXTextField>
+                                                                                                <JFXButton buttonType="RAISED" layoutY="410.0" onAction="#xivOpenLodestonePage" prefHeight="25.0" prefWidth="170.0" text="Open Lodestone" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="415.0" />
+                                                                                                <JFXButton buttonType="RAISED" layoutY="434.0" onAction="#xivImportCharacterDataFromLodestone" prefHeight="25.0" prefWidth="170.0" text="Load data from Lodestone" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="435.0" />
+                                                                                                <Label contentDisplay="CENTER" layoutY="9.0" prefHeight="17.0" prefWidth="50.0" text="SQL ID: " AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0" />
+                                                                                                <Label alignment="TOP_RIGHT" layoutX="48.0" layoutY="10.0" prefHeight="17.0" prefWidth="50.0" text="NO ID" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" fx:id="xivCharacterSqlIDLabel" />
+                                                                                                <JFXButton buttonType="RAISED" layoutX="287.0" layoutY="410.0" onAction="#xivCharacterClearFieldsAction" prefHeight="25.0" prefWidth="100.0" text="Clear For New" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="415.0" />
+                                                                                                <JFXButton layoutX="295.0" layoutY="434.0" onAction="#xivCharacterSave" prefHeight="25.0" prefWidth="100.0" text="Save" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="435.0" />
+                                                                                                <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="434.0" onAction="#xivDeleteCharacterAction" prefHeight="25.0" prefWidth="100.0" text="Delete Char" textFill="RED" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="435.0">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXButton>
+                                                                                                <Label layoutY="6.0" prefHeight="17.0" prefWidth="80.0" text="Last Updated On:" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                                                                                   <font>
+                                                                                                      <Font size="9.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <Label layoutX="77.0" layoutY="5.0" prefHeight="17.0" prefWidth="160.0" text="NEVER" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="5.0" fx:id="xivCharLastUpdatedField">
+                                                                                                   <font>
+                                                                                                      <Font size="9.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </AnchorPane>
+                                                                                       </content>
+                                                                                    </Tab>
+                                                                                    <Tab onSelectionChanged="#xivTabSelectionChanged" text="Group" fx:id="xivGroupTab">
+                                                                                      <content>
+                                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <JFXTextField labelFloat="true" layoutX="7.0" layoutY="8.0" prefHeight="25.0" prefWidth="372.0" promptText="Group Name" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" fx:id="xivGroupNameField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXTextField>
+                                                                                                <JFXTextField labelFloat="true" layoutX="7.0" layoutY="33.0" prefHeight="25.0" prefWidth="372.0" promptText="Group Link" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0" fx:id="xivGroupLinkField">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXTextField>
+                                                                                                <JFXComboBox editable="true" labelFloat="true" layoutY="104.0" onKeyPressed="#xivGroupCharComboBoxKeyPressed" onKeyReleased="#keyReleased" prefHeight="25.0" prefWidth="377.0" promptText="Character" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="135.0" fx:id="xivGroupCharacterComboBox">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXListView layoutX="3.0" layoutY="136.0" onKeyPressed="#xivGroupCharactersListKeyPressed" onKeyReleased="#keyReleased" onMouseClicked="#xivGroupMemberListDoubleClick" prefHeight="156.0" prefWidth="378.0" showTooltip="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="185.0" fx:id="xivGroupCharactersList">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXListView>
+                                                                                                <JFXButton buttonType="RAISED" layoutX="4.0" layoutY="366.0" onAction="#xivOpenGroupLink" prefHeight="25.0" prefWidth="200.0" text="Open Group Link" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="340.0">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXButton>
+                                                                                                <Label layoutX="281.0" layoutY="10.0" prefWidth="50.0" text="SQL ID:" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="10.0" />
+                                                                                                <Label alignment="TOP_RIGHT" layoutX="336.0" layoutY="10.0" prefHeight="17.0" prefWidth="50.0" text="NO ID" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" fx:id="xivGroupSqlIDLabel" />
+                                                                                                <JFXButton buttonType="RAISED" layoutX="4.0" layoutY="341.0" onAction="#xivGroupSaveButton" prefHeight="25.0" prefWidth="100.0" text="Save Group" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="340.0">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXButton>
+                                                                                                <JFXButton buttonType="RAISED" layoutY="390.0" onAction="#xivDeleteGroupAction" prefHeight="25.0" prefWidth="200.0" text="Delete Group" textFill="RED" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="390.0">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" right="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXButton>
+                                                                                                <JFXButton buttonType="RAISED" layoutX="281.0" layoutY="365.0" onAction="#xivGroupClearFieldsAction" prefHeight="25.0" prefWidth="100.0" text="Clear For New" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="365.0" />
+                                                                                                <Label layoutX="4.0" layoutY="2.0" prefHeight="17.0" prefWidth="80.0" text="Last updated on" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                                                                                   <font>
+                                                                                                      <Font size="9.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <Label layoutX="94.0" prefHeight="17.0" prefWidth="160.0" text="NEVER" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="5.0" fx:id="xivGroupLastUpdatedField">
+                                                                                                   <font>
+                                                                                                      <Font size="9.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </AnchorPane>
+                                                                                      </content>
+                                                                                    </Tab>
+                                                                                 </tabs>
+                                                                              </JFXTabPane>
+                                                                              <JFXTabPane prefHeight="509.0" prefWidth="406.0" HBox.hgrow="ALWAYS">
+                                                                                 <tabs>
+                                                                                    <Tab text="Notes" fx:id="xivNotesTab">
+                                                                                      <content>
+                                                                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                                             <children>
+                                                                                                <JFXListView onKeyPressed="#xivNoteListKeyPressed" onKeyReleased="#keyReleased" onMouseClicked="#xivNoteListClick" prefHeight="434.0" prefWidth="402.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="xivNoteList" />
+                                                                                                <JFXButton buttonType="RAISED" layoutX="263.0" layoutY="434.0" onAction="#xivCharNotesAddNew" prefHeight="25.0" prefWidth="139.0" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                                                                <JFXTextField labelFloat="true" layoutY="434.0" prefHeight="25.0" prefWidth="249.0" promptText="Type" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" fx:id="xivCharNotesAddNewType" />
+                                                                                             </children>
+                                                                                          </AnchorPane>
+                                                                                      </content>
+                                                                                    </Tab>
+                                                                                    <Tab text="Connections" fx:id="xivConnectionsTab">
+                                                                                      <content>
+                                                                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                                             <children>
+                                                                                                <JFXListView layoutX="2.0" layoutY="7.0" onKeyPressed="#xivConnectionsListKeyPressed" onMouseClicked="#xivConnectionsListClicked" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="xivConnectionsList" />
+                                                                                                <JFXComboBox editable="true" layoutY="434.0" prefHeight="25.0" prefWidth="156.0" promptText="Connection To" AnchorPane.bottomAnchor="0.0" fx:id="xivConnectionTargetComboBox">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXComboBox>
+                                                                                                <JFXTextField labelFloat="true" layoutX="156.0" layoutY="434.0" promptText="Label" AnchorPane.bottomAnchor="0.0" fx:id="xivConnectionLabelField" />
+                                                                                                <JFXButton layoutX="295.0" layoutY="409.0" onAction="#xivAddConnectionButtonAction" prefHeight="50.0" prefWidth="109.0" text="Add new" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                                                                <JFXCheckBox alignment="TOP_LEFT" layoutY="416.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="276.0" text="Directed" textAlignment="CENTER" AnchorPane.bottomAnchor="25.0" fx:id="xivConnectionDirectedCheckBox">
+                                                                                                   <padding>
+                                                                                                      <Insets left="5.0" />
+                                                                                                   </padding>
+                                                                                                </JFXCheckBox>
+                                                                                             </children>
+                                                                                          </AnchorPane>
+                                                                                      </content>
+                                                                                    </Tab>
+                                                                                 </tabs>
+                                                                              </JFXTabPane>
+                                                                           </children>
+                                                                        </HBox>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="385.0">
+                                                                           <children>
+                                                                              <JFXTabPane prefWidth="781.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.0">
+                                                                                 <tabs>
+                                                                                    <Tab text="Source">
+                                                                                       <content>
+                                                                                          <JFXTextArea prefHeight="192.0" prefWidth="781.0" wrapText="true" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="xivNoteTextFlow" />
+                                                                                       </content>
+                                                                                    </Tab>
+                                                                                    <Tab text="Text">
+                                                                                      <content>
+                                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                                                      </content>
+                                                                                    </Tab>
+                                                                                 </tabs>
+                                                                              </JFXTabPane>
+                                                                              <JFXTextField labelFloat="true" layoutY="194.0" prefHeight="25.0" prefWidth="200.0" promptText="Type" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" fx:id="xivNoteTypeField" />
+                                                                              <JFXButton buttonType="RAISED" layoutX="729.0" layoutY="194.0" onAction="#xivSaveNotesButtonAction" prefHeight="25.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" fx:id="xivSaveNotesButton" />
+                                                                              <JFXComboBox labelFloat="true" layoutX="200.0" layoutY="194.0" prefHeight="25.0" prefWidth="350.0" promptText="Character/Group" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" fx:id="xivOwnerNameComboBox" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                    </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </HBox>
+                                                         </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                          <Tab text="XIV Graphs">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <JFXTabPane layoutX="180.0" layoutY="32.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <tabs>
+                                                            <Tab text="Races">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <JFXTabPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                           <tabs>
+                                                                              <Tab text="Totals">
+                                                                                <content>
+                                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <BarChart prefHeight="394.0" prefWidth="556.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0" fx:id="xivRaceChart">
+                                                                                            <xAxis>
+                                                                                              <CategoryAxis side="BOTTOM" />
+                                                                                            </xAxis>
+                                                                                            <yAxis>
+                                                                                              <NumberAxis side="LEFT" />
+                                                                                            </yAxis>
+                                                                                          </BarChart>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                </content>
+                                                                              </Tab>
+                                                                              <Tab text="Subraces">
+                                                                                 <content>
+                                                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <BarChart prefHeight="394.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0" fx:id="xivSubraceChart">
+                                                                                             <xAxis>
+                                                                                                <CategoryAxis side="BOTTOM" />
+                                                                                             </xAxis>
+                                                                                             <yAxis>
+                                                                                                <NumberAxis side="LEFT" />
+                                                                                             </yAxis>
+                                                                                          </BarChart>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </content>
+                                                                              </Tab>
+                                                                           </tabs>
+                                                                        </JFXTabPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                              </content>
+                                                            </Tab>
+                                                            <Tab text="Jobs">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <BarChart AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="xivJobsChart">
+                                                                          <xAxis>
+                                                                            <CategoryAxis side="BOTTOM" />
+                                                                          </xAxis>
+                                                                          <yAxis>
+                                                                            <NumberAxis side="LEFT" />
+                                                                          </yAxis>
+                                                                        </BarChart>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                              </content>
+                                                            </Tab>
+                                                         </tabs>
+                                                      </JFXTabPane>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                       </tabs>
+                                    </JFXTabPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="imagesTab" onSelectionChanged="#imagesSelectionChanged" text="Images">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.20098522167487684" prefHeight="726.0" prefWidth="980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <items>
+                                    <VBox prefHeight="647.0" prefWidth="194.0">
+                                       <children>
+                                          <JFXComboBox fx:id="TagComboBox" editable="true" labelFloat="true" onKeyPressed="#tagBoxAction" onKeyReleased="#keyReleased" prefHeight="25.0" prefWidth="197.0" promptText="Tag" />
+                                          <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="676.0" prefWidth="194.0" VBox.vgrow="ALWAYS">
+                                            <items>
+                                                <JFXListView fx:id="suggestionList" onMouseClicked="#SuggestionClick" prefHeight="274.0" prefWidth="192.0" />
+                                                <JFXListView fx:id="tagList" onKeyPressed="#tagListKeyPressed" onKeyReleased="#keyReleased" prefHeight="295.0" prefWidth="192.0" />
+                                            </items>
+                                          </SplitPane>
+                                          <Slider fx:id="SuggestionSlider" blockIncrement="1.0" majorTickUnit="30.0" max="10.0" minorTickCount="30" prefHeight="56.0" prefWidth="194.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                                          <JFXCheckBox fx:id="loadSuggestionsCheckBox" onAction="#loadSuggestionsCheckBoxAction" prefHeight="18.0" prefWidth="125.0" selected="true" text="Load Suggestions" textAlignment="CENTER" VBox.vgrow="NEVER" />
+                                       </children>
+                                    </VBox>
+                                    <AnchorPane>
+                                       <children>
+                                          <SplitPane dividerPositions="0.7867036011080333" layoutY="-1.0" orientation="VERTICAL" prefHeight="724.0" prefWidth="780.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <SwingNode fx:id="swingNodeImagePanel" cache="true" onKeyPressed="#imageKeyPress" onKeyReleased="#keyReleased" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="757.0">
+                                                   <children>
+                                                      <JFXTabPane prefHeight="152.0" prefWidth="776.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <tabs>
+                                                            <Tab closable="false" text="Filters">
+                                                               <content>
+                                                                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <JFXTextField fx:id="suffixField" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" promptText="Suffix" AnchorPane.leftAnchor="10.0" />
+                                                                        <JFXTextField fx:id="countBegin" labelFloat="true" layoutX="407.0" layoutY="14.0" promptText="CountStart" text="0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="15.0" />
+                                                                        <JFXTextField fx:id="countEnd" labelFloat="true" layoutX="583.0" layoutY="14.0" promptText="CountEnd" text="999" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                                                                        <Label layoutX="561.0" layoutY="18.0" text="&lt;" AnchorPane.rightAnchor="162.0" AnchorPane.topAnchor="15.0" />
+                                                                        <JFXComboBox fx:id="selectionComboBox" editable="true" labelFloat="true" layoutX="13.0" layoutY="58.0" onKeyPressed="#whiteListBoxAction" onKeyReleased="#keyReleased" prefHeight="25.0" prefWidth="199.0" promptText="Whitelisted Tag" AnchorPane.leftAnchor="10.0" />
+                                                                        <JFXComboBox fx:id="BLselectionComboBox" editable="true" labelFloat="true" layoutX="515.0" layoutY="58.0" onKeyPressed="#blackListBoxAction" onKeyReleased="#keyReleased" prefHeight="25.0" prefWidth="203.0" promptText="BlacklistedTag" AnchorPane.rightAnchor="10.0" />
+                                                                        <JFXListView fx:id="tagBox" layoutX="12.0" layoutY="97.0" onKeyPressed="#whiteListKeyPressed" onKeyReleased="#keyReleased" prefHeight="115.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                                                                        <JFXListView fx:id="BLtagBox" layoutX="519.0" layoutY="97.0" onKeyPressed="#blackListKeyPressed" onKeyReleased="#keyReleased" prefHeight="115.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                                                                        <JFXButton buttonType="RAISED" layoutX="224.0" layoutY="49.0" onAction="#filterButton" prefHeight="178.0" prefWidth="329.0" text="Apply Filter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="50.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </Tab>
+                                                            <Tab closable="false" text="Thumbs">
+                                                               <content>
+                                                                  <ScrollPane fx:id="thumbScroll" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" onScrollStarted="#scrollStart" prefHeight="190.0" prefViewportHeight="84.0" prefViewportWidth="769.0" prefWidth="764.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <content>
+                                                                        <TilePane fx:id="ThumbList" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefColumns="10" prefHeight="210.0" prefRows="10" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="709.0" tileAlignment="TOP_LEFT">
+                                                                           <opaqueInsets>
+                                                                              <Insets />
+                                                                           </opaqueInsets>
+                                                                        </TilePane>
+                                                                     </content>
+                                                                  </ScrollPane>
+                                                               </content>
+                                                            </Tab>
+                                                            <Tab closable="false" text="Similar Images">
+                                                               <content>
+                                                                  <ScrollPane fx:id="thumbScroll1" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" onScrollStarted="#scrollStart" prefHeight="190.0" prefViewportHeight="84.0" prefViewportWidth="769.0" prefWidth="764.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <content>
+                                                                        <TilePane fx:id="SimilarThumbList" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefColumns="10" prefHeight="210.0" prefRows="10" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="709.0" tileAlignment="TOP_LEFT">
+                                                                           <opaqueInsets>
+                                                                              <Insets />
+                                                                           </opaqueInsets>
+                                                                        </TilePane>
+                                                                     </content>
+                                                                  </ScrollPane>
+                                                               </content>
+                                                            </Tab>
+                                                         </tabs>
+                                                      </JFXTabPane>
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
